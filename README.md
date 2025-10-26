@@ -22,10 +22,16 @@ To run this project, you will need the following Python libraries.
 - scikit-learn
   
 **🚀 How to Run the Project**
+
 You can run this project by following these steps:
+
 **1. Clone the Repository (or Download Files):** Ensure you have the university_admission.csv file and the Python script (or Jupyter Notebook) in the same directory.
+
 **2. Install Dependencies:** Open your terminal or command prompt and install the required libraries using pip:
       pip install pandas numpy matplotlib seaborn scikit-learn
+      
 **3. Run the Python Script/Notebook:** 
+
 **If it's a Jupyter Notebook:** First, start the Jupyter server:
+
       jupyter notebook
