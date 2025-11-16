@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Admission Predictor</title>
+    
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 40px auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1 { color: #333; text-align: center; }
+        form { display: flex; flex-direction: column; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { margin-bottom: 5px; display: block; font-weight: bold; }
+        .form-group input, .form-group select { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        .btn { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; text-align: center; }
+        .btn:hover { background-color: #0056b3; }
+        .error { color: red; background-color: #ffe0e0; padding: 10px; border-radius: 4px; margin-bottom: 15px; text-align: center; }
+        .result-link { display: none; } /* Hide link, we use this in result.html */
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎓 University Admission Predictor</h1>
+
+        {% if error_message %}
+            <p class="error">{{ error_message }}</p>
+        {% endif %}
+        
+        <form action="{% url 'predict_chance' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="gre">GRE Score (out of 340)</label>
+                <input type="number" id="gre" name="gre" min="0" max="340" step="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="toefl">TOEFL Score (out of 120)</label>
+                <input type="number" id="toefl" name="toefl" min="0" max="120" step="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="rating">University Rating (out of 5)</label>
+                <input type="number" id="rating" name="rating" min="1" max="5" step="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sop">SOP Strength (out of 5)</label>
+                <input type="number" id="sop" name="sop" min="1" max="5" step="0.5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lor">LOR Strength (out of 5)</label>
+                <input type="number" id="lor" name="lor" min="1" max="5" step="0.5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cgpa">CGPA (out of 10)</label>
+                <input type="number" id="cgpa" name="cgpa" min="0" max="10" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="research">Research Experience</label>
+                <select id="research" name="research">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Predict My Chance!</button>
+        </form>
+    </div>
+
+</body>
+</html>

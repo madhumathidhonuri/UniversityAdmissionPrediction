@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 40px auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1 { color: #333; text-align: center; }
+        .result-box { text-align: center; margin-top: 30px; }
+        .result-text { font-size: 20px; color: #555; }
+        .result-value {
+            font-size: 48px;
+            font-weight: bold;
+            color: #007bff; /* Blue color */
+            margin: 10px 0;
+        }
+        .btn { background-color: #6c757d; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; text-decoration: none; display: inline-block; margin-top: 20px; }
+        .btn:hover { background-color: #5a6268; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>📈 Prediction Result</h1>
+
+        <div class="result-box">
+            <p class="result-text">{{ prediction_text }}</p>
+            <p class="result-value">{{ prediction_value }}</p>
+        </div>
+
+        <a href="{% url 'home' %}" class="btn">Make Another Prediction</a>
+    </div>
+
+</body>
+</html>
